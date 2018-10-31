@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<head>
+
+<title>Exm.1 supavadee</title>
+
+	<style type="text/css">
+
+	  	h1{
+			font-size: 37px;
+			color: #838383;
+		}
+	  	.truckbody {
+		    width: 180px;
+		    height: 120px;
+		    border: 0px solid black; 
+		    background-color: #eeeeee;
+		    text-align: left;
+		}
+
+		.truckgreen1 {
+		    width: 70px;
+		    height: 100px;
+		    border: 0px solid black; 
+		    background-color: #cce70b;
+		    text-align: left;
+		    margin-left: 184px;
+		    margin-top: -90px;
+			}
+		.radius {
+			width: 60px; 
+			height: 100px; 
+			background: #bbdaea; 
+			border-radius: 0px 49px 49px 0px;
+			margin-left: 235px;
+		    margin-top: -100px;
+		}
+		.truckgreen2 {
+		    width: 280px;
+		    height: 20px;
+		    border: 0px solid black; 
+		    background-color: #cce70b;
+		    text-align: left;
+		    margin-top: -10px;
+		}
+
+		.line{
+			width: 5px; 
+			height: 39px; 
+			background: #eeeeee;
+			margin-left: 17px;
+		}
+
+		.loading {
+			position:absolute;
+			width: 40px; 
+			height: 40px; 
+		    border-style: solid 0px;
+		    background: #b3b3b3; 
+
+		    -moz-border-radius: 70px; 
+
+		    -webkit-border-radius: 70px; 
+
+		    border-radius: 70px;
+		    -webkit-animation: rotation 2s infinite linear;
+		    -webkit-transition-duration: 1s;
+		}
+
+		@-webkit-keyframes rotation {
+				from {
+						-webkit-transform: rotate(0deg);
+				}
+				to {
+						-webkit-transform: rotate(360deg);
+				}
+		}
+
+		#container{
+			outline: 0px solid #000;
+			width: 800px;
+			height: 400px;
+			position: relative;
+		}
+		#anime{
+			width: 300px;
+			height: 200px;
+			outline: 0px solid black;
+			position: absolute;
+			left:0;
+		}
+
+	</style>
+</head>
+
+
+
+
+<body>
+<h2>Exm.1-2 css and js</h2>
+
+<div id="container">
+	<div id="anime">
+		
+		<div class="truckbody">
+			<h1>Hello, Customer!</h1>
+		</div>
+		<div class="truckgreen1"></div>
+		<div class="radius"></div>
+
+		<div class="loading" style="margin-top: 1px; margin-left: 20px;">
+			<div class="line"></div>
+		</div>
+		<div class="loading" style="margin-top: 1px; margin-left: 190px;">		
+			<div class="line"></div>
+		</div>
+		<div class="truckgreen2"></div>
+	
+	</div>
+</div>
+
+<div style="padding:20px;"> 
+	<button id="left">Move Left</button>
+	<button id="right">Move Right</button>
+</div>
+
+
+</body>
+</html>
+
+
+<script>
+
+	$(document).ready(function(){
+		var container= document.getElementById('container');
+		var pos = 0;
+
+	    $("#left").click(function(e){
+	        $("#anime").animate({
+	        	left: '-500px'
+	        });
+	    });
+	    $("#right").click(function(e){
+	        $("#anime").animate({
+	        	left: '+1000px'
+	        });
+	    });
+	});
+
+
+	var anime=document.getElementById('anime');
+	var container= document.getElementById('container');
+
+	var animeleft = 0;
+
+	function move(e) {
+		if(e.keyCode==39){
+			animeleft +=5; 
+			anime.style.left = animeleft + 'px';
+
+		}
+		if(e.keyCode==37){
+			animeleft -=5;
+			anime.style.left = animeleft + 'px';
+
+		}
+		
+	}
+	document.onkeydown = move;
+</script>
+
+
+
+
+
+
+
+
